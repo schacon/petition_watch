@@ -9,6 +9,7 @@ gem 'json'
 gem 'omniauth'
 gem 'omniauth-github'
 gem 'awesome_print'
+gem 'pony'
 
 # Gems used only for assets and not required
 # in production environments by default.
