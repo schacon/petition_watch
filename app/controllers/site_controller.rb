@@ -9,6 +9,8 @@ class SiteController < ApplicationController
     login = data['info'].nickname
     if login
       user = User.find_or_create_by_login(login)
+      user.email = email
+      user.save
       session[:user_id] = user.id
     end
     redirect_to '/watches'

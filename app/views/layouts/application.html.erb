@@ -24,14 +24,13 @@
       <div class="masthead">
         <ul class="nav nav-pills pull-right">
           <% if @current_user %>
-            <li class="user">
-              <%= gravatar %>
-              <a href="/account"><%= @current_user.login %></a>
-            </li>
-            <li> &nbsp; &nbsp; </li>
             <li><a href="/">Home</a></li>
             <li><a href="/watches">Watches</a></li>
             <li><a href="/logout">Logout</a></li>
+            <li> &nbsp; &nbsp; </li>
+            <li class="user">
+              <img src="<%= gravatar %>?s=40">
+            </li>
           <% else %>
             <li><a href="/auth/github">Login on GitHub</a></li>
           <% end %>
