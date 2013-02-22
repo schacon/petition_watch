@@ -3,6 +3,14 @@ body {
   padding-bottom: 40px;
 }
 
+li.user a { 
+  color: #333;
+}
+
+.create-watch {
+  float: right;
+}
+
 /* Custom container */
 .container-narrow {
   margin: 0 auto;

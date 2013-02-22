@@ -11,7 +11,7 @@ class SiteController < ApplicationController
       user = User.find_or_create_by_login(login)
       session[:user_id] = user.id
     end
-    redirect_to '/'
+    redirect_to '/watches'
   end
 
   def logout

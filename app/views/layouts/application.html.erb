@@ -24,11 +24,15 @@
       <div class="masthead">
         <ul class="nav nav-pills pull-right">
           <% if @current_user %>
-            <li><a href="/account"><%= @current_user.login %></a></li>
-            <li class="active"><a href="/">Home</a></li>
+            <li class="user">
+              <%= gravatar %>
+              <a href="/account"><%= @current_user.login %></a>
+            </li>
+            <li> &nbsp; &nbsp; </li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/watches">Watches</a></li>
             <li><a href="/logout">Logout</a></li>
           <% else %>
-            <li class="active"><a href="/">Home</a></li>
             <li><a href="/auth/github">Login on GitHub</a></li>
           <% end %>
         </ul>
@@ -40,10 +44,6 @@
       <%= yield %>
 
       <hr>
-
-      <div class="footer">
-        <p>&copy; Scott Chacon 2013</p>
-      </div>
 
     </div> <!-- /container -->
   </body>
