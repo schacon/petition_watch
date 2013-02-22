@@ -15,13 +15,6 @@
     <!--[if lt IE 9]>
       <script src="../assets/js/html5shiv.js"></script>
     <![endif]-->
-
-    <!-- Fav and touch icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-                    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
-                                   <link rel="shortcut icon" href="../assets/ico/favicon.png">
   </head>
 
   <body>
@@ -30,8 +23,14 @@
 
       <div class="masthead">
         <ul class="nav nav-pills pull-right">
-          <li class="active"><a href="/">Home</a></li>
-          <li><a href="/auth/github">Login on GitHub</a></li>
+          <% if @current_user %>
+            <li><a href="/account"><%= @current_user.login %></a></li>
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="/logout">Logout</a></li>
+          <% else %>
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="/auth/github">Login on GitHub</a></li>
+          <% end %>
         </ul>
         <h3 class="muted">Petition Watch</h3>
       </div>
@@ -43,7 +42,7 @@
       <hr>
 
       <div class="footer">
-        <p>&copy; Company 2013</p>
+        <p>&copy; Scott Chacon 2013</p>
       </div>
 
     </div> <!-- /container -->
