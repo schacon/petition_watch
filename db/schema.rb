@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130222184340) do
+ActiveRecord::Schema.define(:version => 20130222195513) do
 
   create_table "petitions", :force => true do |t|
     t.string   "pid"
@@ -33,6 +33,13 @@ ActiveRecord::Schema.define(:version => 20130222184340) do
     t.text     "email"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "watch_matches", :force => true do |t|
+    t.integer  "watch_id"
+    t.integer  "petition_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "watches", :force => true do |t|

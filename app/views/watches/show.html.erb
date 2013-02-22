@@ -1,5 +1,33 @@
-<p id="notice"><%= notice %></p>
+<p class="text-success"><%= notice %></p>
 
+<% if @petitions.size == 0 %>
+  <h1>No Petitions</h1>
+<% else %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Title</th>
+        <th>Signatures</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @petitions.each do |p| %>
+      <tr>
+        <td>
+          <a href="<%= p.url %>"><%= p.title[0, 50] %></a>
+        </td>
+        <td><%= p.signatures %></td>
+        <td>
+          <% if p.answered %>
+            <span class="text-success">Answered</p>
+          <% end %>
+        </td>
+      </tr>
+      </div>
+    <% end %>
+  </tbody>
+  </table>
+<% end %>
 
-<%= link_to 'Edit', edit_watch_path(@watch) %> |
 <%= link_to 'Back', watches_path %>

@@ -8,10 +8,26 @@
   <h1>My Watches</h1>
 
   <div class="row-fluid marketing">
-    <div class="span6">
-      <% @watches.each do |watch| %>
-        <h4><%= watch.term %></h4>
-      <% end %>
-    </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Search Term</th>
+            <th>Matches</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @watches.each do |watch| %>
+          <tr>
+            <td>
+              <%= link_to 'Delete', watch_path(watch), :confirm => 'Are you sure?', :method => :delete %>
+
+            <td><%= watch.term %></td>
+            <td><a href="/watches/<%= watch.id %>"><%= watch.petitions.count %> matches</a></td>
+            <td>
+            </td>
+          </tr>
+        <% end %>
+      </table>
   </div>
 <% end %>
