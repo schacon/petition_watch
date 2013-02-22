@@ -8,20 +8,16 @@ namespace :petitions do
   task :load_all => :environment do
     petitions = @peeps.each do |pet|
       pid = pet["id"]
-      p = Petition.find_by_pid(pid)
-      if !p || ENV["RERUN_IMPORT"]
-        puts "Processing #{pid}"
-        p = Petition.new
-        p.pid = pid
-        p.title  = pet["title"]
-        p.body   = pet["body"]
-        p.url    = pet["url"]
-        p.issues = pet["issues"].map { |a| a["name"] }.join(',')
-        p.signatures = pet["signature count"]
-        p.created_time = Time.at(pet["created"].to_i)
-        p.answered = (pet["response"] != nil)
-        p.save
-      end
+      puts "Processing #{pid}"
+      p = Petition.find_or_create_by_pid(pid)
+      p.title  = pet["title"]
+      p.body   = pet["body"]
+      p.url    = pet["url"]
+      p.issues = pet["issues"].map { |a| a["name"] }.join(',')
+      p.signatures = pet["signature count"]
+      p.created_time = Time.at(pet["created"].to_i)
+      p.answered = (pet["response"] != nil)
+      p.save
     end
     #ap petitions
   end
