@@ -24,6 +24,6 @@ end
 gem 'jquery-rails'
 
 group :development do
-  gem 'sqlite'
+  gem 'sqlite3'
   gem 'awesome_print'
 end
