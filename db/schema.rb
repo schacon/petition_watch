@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130222151635) do
+ActiveRecord::Schema.define(:version => 20130222184340) do
 
   create_table "petitions", :force => true do |t|
     t.string   "pid"
@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(:version => 20130222151635) do
     t.datetime "updated_at",   :null => false
   end
 
+  add_index "petitions", ["pid"], :name => "index_petitions_on_pid"
+
   create_table "users", :force => true do |t|
     t.string   "login"
     t.text     "email"
@@ -39,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20130222151635) do
     t.datetime "last_alert"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.datetime "last_check"
   end
 
 end
