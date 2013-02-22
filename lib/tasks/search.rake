@@ -50,10 +50,13 @@ namespace :search do
         # alert user
         #watch.last_alert = Time.now
         matches.each do |match|
-          pemail  = match.title + "\n\n"
+          pemail = "The following petition matches your watch:\n\n"
+          pemail += match.title + "\n\n"
+          pemail += "-------------\n"
           pemail += match.body + "\n\n"
           pemail += match.issues + "\n\n"
-          pemail += match.url
+          pemail += "View it here: " + match.url + "\n"
+          pemail += "Sign it here: https://petitions.whitehouse.gov/petition/sign/" + match.pid 
           Pony.mail(:to => watch.user.email,
                 :subject => "New Petition on '#{watch.term}'",
                 :body => pemail)
