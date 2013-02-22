@@ -8,6 +8,7 @@ gem 'json'
 
 gem 'omniauth'
 gem 'omniauth-github'
+gem 'awesome_print'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -25,5 +26,4 @@ gem 'jquery-rails'
 
 group :development do
   gem 'sqlite3'
-  gem 'awesome_print'
 end
