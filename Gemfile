@@ -2,8 +2,6 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.2'
 
-gem 'we_the_people', :path => 'vendor/gems/we_the_people'
-
 gem 'sqlite3'
 
 gem 'json'

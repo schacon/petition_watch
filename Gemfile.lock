@@ -1,10 +1,3 @@
-PATH
-  remote: vendor/gems/we_the_people
-  specs:
-    we_the_people (0.0.2)
-      json
-      rest-client
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -109,8 +102,6 @@ GEM
     rake (10.0.3)
     rdoc (3.12.1)
       json (~> 1.4)
-    rest-client (1.6.7)
-      mime-types (>= 1.16)
     sass (3.2.5)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -145,4 +136,3 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   sqlite3
   uglifier (>= 1.0.3)
-  we_the_people!
