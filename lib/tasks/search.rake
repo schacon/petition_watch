@@ -12,7 +12,7 @@ if ENV['SENDGRID_USERNAME']
       :authentication => :plain,
       :enable_starttls_auto => true
     },
-    :from => 'schacon@gmail.com'
+    :from => 'Petition Watch <schacon+petitionwatch@gmail.com>'
   }
 end
 
