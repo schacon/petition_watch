@@ -18,7 +18,7 @@ namespace :petitions do
         p.url    = pet["url"]
         p.issues = pet["issues"].map { |a| a["name"] }.join(',')
         p.signatures = pet["signature count"]
-        p.created_time = pet["created"]
+        p.created_time = pet["created"].to_i
         p.answered = (pet["response"] != nil)
         p.save
       end
