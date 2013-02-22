@@ -1,1 +1,0 @@
-WeThePeople::Config.api_key = ENV['WTP_KEY']
