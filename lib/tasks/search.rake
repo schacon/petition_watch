@@ -17,6 +17,12 @@ if ENV['SENDGRID_USERNAME']
 end
 
 namespace :search do
+
+  task :reset_checks => :environment do
+    Watch.all.each { |w| w.last_check = nil; w.save }
+    WatchMatch.all.each { |wm| wm.destroy }
+  end
+
   desc "Look for unknown matches and email people"
   task :find_matches => :environment do
     watches = Watch.all
@@ -29,8 +35,7 @@ namespace :search do
         # alert user
         watch.last_alert = Time.now
         matches.each do |match|
-          pemail = "The following petition matches your watch:\n\n"
-          pemail += '##' + match.title + "##\n\n"
+          pemail += '## Petition: ' + match.title + " ##\n\n"
           pemail += match.body + "\n\n"
           pemail += match.issues + "\n\n"
           pemail += "View it here: " + match.url + "\n\n"
