@@ -20,7 +20,7 @@
         <% @watches.each do |watch| %>
           <tr>
             <td>
-              <%= link_to 'Delete', watch_path(watch), :confirm => 'Are you sure?', :method => :delete %>
+              <%= link_to 'x', watch_path(watch), :confirm => 'Are you sure?', :method => :delete %>
 
             <td><%= watch.term %></td>
             <td><a href="/watches/<%= watch.id %>"><%= watch.petitions.count %> matches</a></td>
