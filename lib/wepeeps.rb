@@ -1,7 +1,7 @@
 require 'open-uri'
 
 class WePeeps
-  URL = "http://api.whitehouse.gov/v1/petitions/"
+  URL = "https://api.whitehouse.gov/v1/petitions/"
 
   def initialize(key)
     @key = key
